@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roberta Rosa — Lançamento do Livro</title>
+  <meta name="description" content="Página de divulgação do lançamento do livro de Roberta Rosa. Clique para comprar na Amazon." />
+  <style>
+    :root{--bg:#070A12;--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.14);--txt:rgba(255,255,255,.92);--mut:rgba(255,255,255,.72)}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:
+      radial-gradient(900px 560px at 15% -10%, rgba(82,193,255,.28), transparent 60%),
+      radial-gradient(900px 560px at 110% 15%, rgba(255,110,170,.22), transparent 60%),
+      radial-gradient(900px 560px at 50% 115%, rgba(120,255,210,.16), transparent 60%),
+      var(--bg); color:var(--txt)}
+    .wrap{width:min(1050px, calc(100% - 48px)); margin:0 auto}
+    header{position:sticky; top:0; backdrop-filter: blur(10px); background: rgba(7,10,18,.65); border-bottom:1px solid var(--line); z-index:20}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:750}
+    .pill{font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; color:var(--mut); background:rgba(255,255,255,.04)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.18); background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      color:var(--txt); text-decoration:none; font-weight:650}
+    .btn.primary{border-color:transparent; background:linear-gradient(135deg, rgba(82,193,255,.95), rgba(255,110,170,.85)); color:rgba(8,10,16,.95)}
+    .hero{padding:56px 0 18px}
+    .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:center}
+    h1{font-size: clamp(34px, 4.5vw, 56px); line-height:1.03; margin:10px 0}
+    p{color:var(--mut); line-height:1.6; margin:0 0 16px; max-width:62ch}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px}
+    .cover{width:100%; aspect-ratio:3/4; border-radius:14px; border:1px solid rgba(255,255,255,.18);
+      background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.04)),
+      url("https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=70") center/cover no-repeat}
+    .row{display:flex; gap:12px; flex-wrap:wrap}
+    section{padding:22px 0}
+    h2{margin:0 0 10px; font-size:20px}
+    ul{margin:0; padding-left:18px; color:var(--mut); line-height:1.7}
+    footer{padding:26px 0 60px; border-top:1px solid var(--line); color:var(--mut); font-size:13px}
+    @media (max-width: 920px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <div class="brand">🌍 <span>Roberta Rosa</span> <span class="pill">Amostra de Landing Page</span></div>
+      <a class="btn primary" id="buyTop" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="grid">
+        <div>
+          <div class="pill">📚 Lançamento • Viagens ao redor do mundo</div>
+          <h1>Uma volta ao mundo em histórias, encontros e descobertas.</h1>
+          <p>
+            Uma página leve e pronta para anúncios, feita para apresentar o livro e levar o leitor direto para a compra na Amazon.
+            (Os textos finais entram quando você tiver título, sinopse e detalhes.)
+          </p>
+          <div class="row">
+            <a class="btn primary" id="buyHero" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+            <a class="btn" href="#sobre">Ver estrutura</a>
+          </div>
+        </div>
+
+        <aside class="card">
+          <div class="cover" aria-label="Imagem ilustrativa (trocar pela capa do livro)"></div>
+          <div style="margin-top:12px" class="row">
+            <span class="pill">⚡ Leve</span>
+            <span class="pill">📱 Responsiva</span>
+            <span class="pill">🎯 Conversão</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h2>O que essa página pode ter (quando o conteúdo estiver pronto)</h2>
+      <div class="card">
+        <ul>
+          <li>Capa do livro + chamada principal + CTA</li>
+          <li>Resumo/sinopse curta</li>
+          <li>Destaques do livro (benefícios / tópicos)</li>
+          <li>Sobre a autora (Roberta Rosa)</li>
+          <li>FAQ para remover dúvidas</li>
+          <li>Botões repetidos levando para a Amazon</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Chamada final</h2>
+      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap">
+        <div>
+          <strong>Pronta para levar tráfego para a Amazon.</strong><br/>
+          <span style="color:var(--mut)">Substituir link e textos finais quando o livro estiver publicado.</span>
+        </div>
+        <a class="btn primary" id="buyBottom" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> • Landing page de amostra • Roberta Rosa
+    </footer>
+  </main>
+
+  <script>
+    const AMAZON_URL = "https://www.amazon.com.br/SEU-LINK-AQUI"; // troque depois
+    ["buyTop","buyHero","buyBottom"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = AMAZON_URL;
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
