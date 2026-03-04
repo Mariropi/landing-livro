@@ -3,248 +3,207 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Roberta Rosa — Lançamento (Amostra)</title>
-  <meta name="description" content="Landing page em tons pastéis para divulgar um livro de viagens e levar para compra na Amazon." />
+  <title>Roberta Rosa — Livro de Viagens</title>
+  <meta name="description" content="Landing page clean e elegante para divulgar livro de viagens e levar o visitante para compra na Amazon." />
 
   <style>
     :root{
-      /* Pastéis felizes */
-      --sky:#e8f7ff;
-      --mint:#eafff2;
-      --peach:#fff0e6;
-      --lilac:#f3eeff;
-      --sun:#fff6cc;
+      /* Paleta clean + pastel */
+      --bg: #fbfbfc;
+      --paper: #ffffff;
+      --ink: #111827;   /* quase preto */
+      --muted: #6b7280; /* cinza */
+      --line: rgba(17,24,39,.10);
+      --shadow: 0 14px 50px rgba(17,24,39,.08);
 
-      --ink:#1c2333;
-      --mut:#4e5a73;
-      --line:rgba(28,35,51,.12);
-      --card:rgba(255,255,255,.78);
-      --shadow: 0 18px 60px rgba(28,35,51,.12);
+      /* Acentos suaves (pastéis) */
+      --accent: #7cc7ff;   /* azul céu */
+      --accent2:#a7f3d0;   /* menta */
+      --accent3:#fbcfe8;   /* rosa */
+      --accent4:#fde68a;   /* amarelo */
+
+      --max: 1100px;
       --r: 18px;
-      --max: 1120px;
-
-      --gradA: linear-gradient(135deg, rgba(255,181,167,.92), rgba(191,220,255,.92)); /* peach->sky */
-      --gradB: linear-gradient(135deg, rgba(184,255,219,.92), rgba(255,232,163,.92)); /* mint->sun */
-      --gradC: linear-gradient(135deg, rgba(214,198,255,.92), rgba(255,201,229,.92)); /* lilac->pink */
-
-      --focus: 0 0 0 4px rgba(120,170,255,.22);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color: var(--ink);
       background:
-        radial-gradient(900px 560px at 10% -10%, rgba(255,181,167,.40), transparent 60%),
-        radial-gradient(900px 560px at 110% 10%, rgba(191,220,255,.45), transparent 60%),
-        radial-gradient(900px 560px at 50% 120%, rgba(184,255,219,.35), transparent 60%),
-        linear-gradient(180deg, var(--peach), var(--sky) 35%, var(--mint));
+        radial-gradient(800px 420px at 15% -10%, rgba(124,199,255,.18), transparent 60%),
+        radial-gradient(750px 420px at 110% 10%, rgba(167,243,208,.18), transparent 60%),
+        radial-gradient(800px 520px at 50% 115%, rgba(251,207,232,.16), transparent 60%),
+        var(--bg);
       overflow-x:hidden;
     }
 
-    a{color:inherit; text-decoration:none}
-    .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto}
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:min(var(--max), calc(100% - 44px)); margin:0 auto; }
 
-    /* Header */
+    /* Header minimal */
     header{
-      position: sticky; top:0; z-index:60;
-      backdrop-filter: blur(12px);
-      background: rgba(255,255,255,.68);
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,251,252,.75);
       border-bottom: 1px solid var(--line);
     }
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding: 14px 0;
+      padding: 14px 0;
+      gap: 14px;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight: 900; letter-spacing:-.2px;
+      font-weight: 750;
+      letter-spacing: .2px;
     }
-    .badge{
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.75);
-      color: var(--mut);
-      font-weight: 800;
-      white-space:nowrap;
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      box-shadow: 0 0 0 6px rgba(124,199,255,.14);
     }
-    nav{display:flex; gap: 8px; align-items:center}
+    nav{ display:flex; gap: 10px; align-items:center; }
     nav a{
-      font-size:14px;
+      font-size: 14px;
+      color: var(--muted);
       padding: 8px 10px;
       border-radius: 999px;
-      color: var(--mut);
-      font-weight: 750;
     }
-    nav a:hover{background: rgba(28,35,51,.06); color: var(--ink)}
+    nav a:hover{ background: rgba(17,24,39,.04); color: var(--ink); }
 
-    /* Buttons */
+    /* Buttons clean */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 12px 16px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 12px 28px rgba(28,35,51,.10);
-      font-weight: 900;
-      cursor:pointer;
-      transition: transform .16s ease, box-shadow .16s ease;
-      user-select:none;
-      white-space:nowrap;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 10px 24px rgba(17,24,39,.06);
+      font-weight: 650;
+      transition: transform .14s ease, box-shadow .14s ease;
+      white-space: nowrap;
     }
-    .btn:hover{transform: translateY(-1px); box-shadow: 0 18px 36px rgba(28,35,51,.14)}
-    .btn:focus{outline:none; box-shadow: var(--focus), 0 18px 36px rgba(28,35,51,.14)}
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(17,24,39,.09); }
+
     .btn.primary{
       border-color: transparent;
-      background: var(--gradB);
+      background: linear-gradient(135deg, rgba(124,199,255,.85), rgba(167,243,208,.85));
     }
-    .btn.secondary{
+    .btn.soft{
       border-color: transparent;
-      background: var(--gradA);
+      background: linear-gradient(135deg, rgba(253,230,138,.55), rgba(251,207,232,.55));
     }
 
-    /* Layout */
-    section{padding: 26px 0}
-    .hero{padding: 54px 0 18px}
-    .grid{
+    /* Hero */
+    .hero{ padding: 56px 0 24px; }
+    .heroGrid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
       align-items:center;
     }
-
     .kicker{
       display:inline-flex; gap:10px; align-items:center;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.76);
-      color: var(--mut);
       font-size: 13px;
-      font-weight: 900;
+      color: var(--muted);
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
     }
-
     h1{
-      margin: 12px 0 10px;
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.02;
-      letter-spacing: -0.9px;
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.8px;
     }
     .sub{
-      margin: 0 0 14px;
-      color: var(--mut);
-      font-size: clamp(15px, 1.5vw, 18px);
-      line-height: 1.65;
-      max-width: 68ch;
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 70ch;
     }
+    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-    .mini{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 14px;
-    }
-    .mini span{
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px dashed rgba(28,35,51,.18);
-      background: rgba(255,255,255,.7);
-      color: var(--mut);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
+    /* Card */
     .card{
-      background: var(--card);
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--line);
       border-radius: var(--r);
       box-shadow: var(--shadow);
     }
 
-    /* Book card */
-    .bookCard{
-      padding: 14px;
-      position:relative;
-      overflow:hidden;
-    }
-    .bookCard:before{
-      content:"";
-      position:absolute; inset:-40%;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(255,181,167,.45), transparent 60%),
-        radial-gradient(circle at 70% 35%, rgba(191,220,255,.50), transparent 60%),
-        radial-gradient(circle at 50% 90%, rgba(184,255,219,.40), transparent 60%);
-      filter: blur(18px);
-      z-index:0;
-    }
-    .bookInner{position:relative; z-index:1; display:grid; gap: 12px}
-
+    .bookCard{ padding: 14px; }
     .cover{
       width:100%;
       aspect-ratio: 3/4;
       border-radius: 16px;
-      border: 1px solid rgba(28,35,51,.12);
+      border: 1px solid rgba(17,24,39,.10);
       background:
-        linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.15)),
-        url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=70") center/cover no-repeat;
+        linear-gradient(135deg, rgba(255,255,255,.70), rgba(255,255,255,.10)),
+        url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=70")
+        center/cover no-repeat;
       position:relative;
       overflow:hidden;
     }
-    .sticker{
+    .label{
       position:absolute; left: 12px; top: 12px;
-      padding: 8px 10px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.82);
-      border:1px solid rgba(28,35,51,.12);
-      font-weight: 950;
       font-size: 12px;
-      box-shadow: 0 12px 28px rgba(28,35,51,.10);
+      font-weight: 700;
+      color: rgba(17,24,39,.88);
+      padding: 7px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(17,24,39,.10);
+      background: rgba(255,255,255,.82);
     }
-    .chips{display:flex; gap:8px; flex-wrap:wrap}
-    .chip{
+    .metaRow{
+      display:flex; gap: 8px; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .pill{
+      font-size: 12px;
+      color: var(--muted);
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(28,35,51,.12);
+      border: 1px solid rgba(17,24,39,.10);
       background: rgba(255,255,255,.75);
-      color: var(--mut);
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    /* Section titles */
-    .title{
-      margin:0 0 10px;
-      font-size: 22px;
-      letter-spacing: -0.3px;
-    }
-    .desc{
-      margin:0 0 16px;
-      color: var(--mut);
-      line-height: 1.7;
-      max-width: 80ch;
       font-weight: 650;
     }
 
-    /* Features */
+    /* Sections */
+    section{ padding: 28px 0; }
+    .sectionTitle{
+      margin:0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+    }
+    .sectionDesc{
+      margin:0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 80ch;
+    }
+
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    .feat{
+    .miniCard{
       padding: 16px;
       border-radius: var(--r);
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.80);
-      box-shadow: 0 14px 36px rgba(28,35,51,.08);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 12px 34px rgba(17,24,39,.06);
     }
-    .feat h3{margin:0 0 6px; font-size: 16px}
-    .feat p{margin:0; color: var(--mut); line-height: 1.65; font-size: 14px; font-weight: 650}
+    .miniCard h3{ margin:0 0 6px; font-size: 15px; }
+    .miniCard p{ margin:0; color: var(--muted); line-height: 1.65; font-size: 14px; }
 
-    /* Polaroids (dispersed photos) */
+    /* Polaroids – clean, pouca cor */
     .polaroids{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -252,194 +211,183 @@
       align-items:start;
     }
     .polaroid{
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(28,35,51,.12);
+      background: rgba(255,255,255,.90);
+      border: 1px solid rgba(17,24,39,.10);
       border-radius: 18px;
       padding: 10px;
-      box-shadow: 0 18px 50px rgba(28,35,51,.12);
+      box-shadow: 0 16px 44px rgba(17,24,39,.08);
       transform: rotate(var(--rot));
       position:relative;
     }
-    .polaroid:before{
-      content:"";
+    .tape{
       position:absolute;
-      width: 56px; height: 20px;
-      top: -10px; left: 18px;
+      width: 64px; height: 22px;
+      top: -10px; left: 16px;
       border-radius: 8px;
-      background: rgba(255, 232, 163, .85);
-      border: 1px solid rgba(28,35,51,.10);
+      border: 1px solid rgba(17,24,39,.10);
+      background: rgba(253,230,138,.70);
       transform: rotate(-6deg);
     }
     .polaroid .img{
       width:100%;
       aspect-ratio: 4/3;
       border-radius: 14px;
-      border: 1px solid rgba(28,35,51,.10);
+      border: 1px solid rgba(17,24,39,.08);
       background: var(--img) center/cover no-repeat;
+      filter: saturate(1.05);
     }
     .polaroid .cap{
       padding: 10px 6px 4px;
-      font-weight: 950;
+      font-weight: 700;
       font-size: 13px;
-      color: #263049;
+      color: rgba(17,24,39,.92);
     }
-    .polaroid small{
-      display:block;
-      margin-top: 2px;
-      color: var(--mut);
-      font-weight: 800;
-    }
+    .polaroid small{ display:block; margin-top:2px; color: var(--muted); font-weight: 650; }
 
-    /* Author section */
+    /* Author */
     .authorGrid{
       display:grid;
-      grid-template-columns: .85fr 1.15fr;
+      grid-template-columns: .9fr 1.1fr;
       gap: 14px;
-      align-items: stretch;
+      align-items:stretch;
     }
-    .authorCard{padding: 14px}
     .authorPhoto{
       border-radius: var(--r);
-      border: 1px solid rgba(28,35,51,.12);
-      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(17,24,39,.10);
       overflow:hidden;
+      background: rgba(255,255,255,.86);
       min-height: 320px;
       position:relative;
     }
     .authorPhoto img{
-      width:100%;
-      height:100%;
+      width:100%; height:100%;
       object-fit: cover;
       display:block;
     }
-    .authorFallback{
+    .fallback{
       position:absolute; inset:0;
-      display:grid; place-items:center;
-      padding: 18px;
+      display:none;
+      place-items:center;
       text-align:center;
+      padding: 18px;
+      color: var(--muted);
+      font-weight: 700;
       background:
-        radial-gradient(circle at 30% 30%, rgba(191,220,255,.65), transparent 60%),
-        radial-gradient(circle at 70% 40%, rgba(255,181,167,.55), transparent 60%),
-        radial-gradient(circle at 50% 90%, rgba(184,255,219,.50), transparent 60%),
-        rgba(255,255,255,.88);
-      color: var(--mut);
-      font-weight: 900;
+        radial-gradient(circle at 30% 30%, rgba(124,199,255,.20), transparent 60%),
+        radial-gradient(circle at 70% 40%, rgba(167,243,208,.20), transparent 60%),
+        rgba(255,255,255,.92);
     }
-    .facts{display:grid; gap:10px}
+
+    .facts{ display:grid; gap: 10px; }
     .fact{
-      display:flex; gap:10px; align-items:flex-start;
+      display:flex; gap: 10px; align-items:flex-start;
       padding: 12px;
+      border: 1px solid rgba(17,24,39,.10);
       border-radius: 16px;
-      border: 1px solid rgba(28,35,51,.12);
-      background: rgba(255,255,255,.82);
-      box-shadow: 0 12px 30px rgba(28,35,51,.08);
+      background: rgba(255,255,255,.86);
     }
     .ico{
-      width: 38px; height: 38px;
+      width: 36px; height: 36px;
       border-radius: 14px;
       display:grid; place-items:center;
-      border: 1px solid rgba(28,35,51,.10);
-      background: var(--gradC);
+      border: 1px solid rgba(17,24,39,.10);
+      background: rgba(124,199,255,.20);
       font-size: 18px;
       flex: 0 0 auto;
     }
-    .fact strong{display:block; margin-bottom:2px}
-    .fact span{color: var(--mut); line-height: 1.6; font-weight: 700; font-size: 14px}
+    .fact strong{ display:block; margin-bottom:2px; }
+    .fact span{ color: var(--muted); line-height: 1.6; font-size: 14px; }
 
     /* Excerpt */
-    .excerpt{padding: 18px; position:relative; overflow:hidden}
+    .excerpt{ padding: 18px; position:relative; overflow:hidden; }
     .excerpt:before{
       content:"";
       position:absolute; inset:-40%;
       background:
-        radial-gradient(circle at 20% 30%, rgba(191,220,255,.65), transparent 60%),
-        radial-gradient(circle at 75% 35%, rgba(255,181,167,.60), transparent 60%),
-        radial-gradient(circle at 50% 90%, rgba(184,255,219,.55), transparent 60%);
-      filter: blur(18px);
+        radial-gradient(circle at 20% 30%, rgba(124,199,255,.25), transparent 60%),
+        radial-gradient(circle at 75% 35%, rgba(251,207,232,.22), transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(167,243,208,.22), transparent 60%);
+      filter: blur(20px);
       z-index:0;
     }
-    .excerptInner{position:relative; z-index:1}
+    .excerptInner{ position:relative; z-index:1; }
     blockquote{
       margin:0;
       font-size: 16px;
       line-height: 1.85;
-      color: #25304a;
-      font-weight: 700;
+      color: rgba(17,24,39,.92);
     }
     blockquote em{
       font-style: normal;
-      font-weight: 950;
-      color: #1c2333;
-      background: rgba(255,246,204,.85);
+      font-weight: 800;
+      background: rgba(253,230,138,.55);
       padding: 0 6px;
       border-radius: 8px;
-      border: 1px solid rgba(28,35,51,.10);
+      border: 1px solid rgba(17,24,39,.08);
     }
-    .quoteMeta{margin-top: 10px; color: var(--mut); font-weight: 900; font-size: 13px}
+    .quoteMeta{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-    /* Buy section */
-    .buyWrap{
+    /* Buy section clean + creative */
+    .buyGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      align-items: stretch;
+      align-items:stretch;
     }
-    .buyCard{padding: 16px; position:relative; overflow:hidden}
-    .buyCard:before{
-      content:"";
-      position:absolute; inset:-35%;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(255,232,163,.65), transparent 60%),
-        radial-gradient(circle at 70% 40%, rgba(191,220,255,.60), transparent 60%),
-        radial-gradient(circle at 50% 90%, rgba(255,201,229,.55), transparent 60%);
-      filter: blur(18px);
-      z-index:0;
-    }
-    .buyInner{position:relative; z-index:1}
-    .buyRow{display:flex; gap: 10px; flex-wrap:wrap; align-items:center}
+
+    .buyCard{ padding: 16px; }
+    .buyRow{ display:flex; gap: 10px; flex-wrap:wrap; align-items:center; }
+
     .buyTile{
       display:flex; align-items:center; gap: 12px;
       padding: 14px;
       border-radius: 18px;
-      border: 1px solid rgba(28,35,51,.12);
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 14px 36px rgba(28,35,51,.10);
-      transition: transform .16s ease, box-shadow .16s ease;
+      border: 1px solid rgba(17,24,39,.10);
+      background: rgba(255,255,255,.90);
+      box-shadow: 0 12px 34px rgba(17,24,39,.06);
+      transition: transform .14s ease, box-shadow .14s ease;
       cursor:pointer;
       flex: 1 1 240px;
       min-width: 240px;
     }
-    .buyTile:hover{transform: translateY(-2px); box-shadow: 0 18px 42px rgba(28,35,51,.14)}
+    .buyTile:hover{ transform: translateY(-2px); box-shadow: 0 16px 40px rgba(17,24,39,.09); }
     .logo{
       width: 44px; height: 44px;
       border-radius: 16px;
       display:grid; place-items:center;
-      border: 1px solid rgba(28,35,51,.10);
-      background: rgba(28,35,51,.04);
+      border: 1px solid rgba(17,24,39,.10);
+      background: rgba(17,24,39,.03);
       font-size: 20px;
       flex: 0 0 auto;
     }
-    .buyTile strong{display:block; font-size: 15px}
-    .buyTile span{display:block; color: var(--mut); font-weight: 800; font-size: 13px}
+    .buyTile strong{ display:block; font-size: 15px; }
+    .buyTile span{ display:block; color: var(--muted); font-size: 13px; font-weight: 650; }
 
     /* Footer */
     footer{
       padding: 26px 0 80px;
       border-top: 1px solid var(--line);
-      color: var(--mut);
+      color: var(--muted);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 650;
     }
-    .foot{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
+    .foot{
+      display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap; align-items:center;
+    }
 
-    /* Sticky CTA on mobile */
+    /* Sticky CTA mobile */
     .sticky{
       position: fixed;
       left:0; right:0; bottom:0;
       padding: 12px 14px;
-      background: rgba(255,255,255,.72);
+      background: rgba(251,251,252,.80);
       border-top: 1px solid var(--line);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       display:none;
       z-index: 90;
     }
@@ -449,16 +397,16 @@
       display:flex; align-items:center; justify-content:space-between; gap: 10px;
     }
     .stickyText strong{display:block; font-size: 13px}
-    .stickyText span{display:block; font-size: 12px; color: var(--mut); font-weight: 850}
+    .stickyText span{display:block; font-size: 12px; color: var(--muted)}
 
     @media (max-width: 980px){
-      nav{display:none}
-      .grid{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .polaroids{grid-template-columns: repeat(2, 1fr)}
-      .authorGrid{grid-template-columns:1fr}
-      .buyWrap{grid-template-columns:1fr}
-      .sticky{display:block}
+      nav{ display:none; }
+      .heroGrid{ grid-template-columns:1fr; }
+      .grid3{ grid-template-columns:1fr; }
+      .polaroids{ grid-template-columns: repeat(2, 1fr); }
+      .authorGrid{ grid-template-columns:1fr; }
+      .buyGrid{ grid-template-columns:1fr; }
+      .sticky{ display:block; }
     }
   </style>
 </head>
@@ -467,8 +415,9 @@
   <header>
     <div class="wrap topbar">
       <div class="brand">
-        ✈️ <span>Roberta Rosa</span>
-        <span class="badge">Amostra • Lançamento</span>
+        <span class="dot"></span>
+        <span>Roberta Rosa</span>
+        <span class="badge">Lançamento • Livro de Viagens</span>
       </div>
 
       <nav>
@@ -479,51 +428,47 @@
         <a href="#comprar">Comprar</a>
       </nav>
 
-      <a class="btn primary" id="buyTop" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+      <a class="btn primary" id="buyTop" href="#" target="_blank" rel="noopener">Comprar →</a>
     </div>
   </header>
 
   <main class="wrap">
     <!-- HERO -->
     <section class="hero" id="home">
-      <div class="grid">
+      <div class="heroGrid">
         <div>
-          <div class="kicker">🌈 Tons pastéis • alegria de viagem • página leve p/ divulgar e vender</div>
-
-          <h1>Uma viagem que dá vontade de sorrir — e de arrumar a mala.</h1>
-
+          <div class="kicker">✈️ Página clean • tons pastéis • leve • feita para conversão</div>
+          <h1>Uma volta ao mundo contada com leveza.</h1>
           <p class="sub">
-            Esta página é uma <strong>amostra de estrutura</strong> para o lançamento do livro de viagens.
-            Depois eu só substituo com o <strong>título, sinopse, capa e trecho real</strong> — mantendo esse visual feliz e leve.
+            Esta é uma <strong>amostra de layout</strong> (clean e elegante) para divulgar o livro e levar o visitante
+            direto para a compra na Amazon. Quando o livro estiver publicado, trocamos capa, título, sinopse e trecho real.
           </p>
 
           <div class="ctaRow">
             <a class="btn primary" id="buyHero" href="#" target="_blank" rel="noopener">🛒 Comprar na Amazon</a>
-            <a class="btn secondary" href="#trecho">📖 Ler um trecho</a>
-            <a class="btn" href="#autora">👩‍💼 Conhecer a autora</a>
+            <a class="btn soft" href="#trecho">📖 Ler um trecho</a>
+            <a class="btn" href="#autora">👩‍💼 Sobre a autora</a>
           </div>
 
-          <div class="mini">
-            <span>📱 Responsiva</span>
-            <span>⚡ Rápida</span>
-            <span>🎯 CTA claro</span>
-            <span>🧡 Tema viagem</span>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill">📱 Responsiva</span>
+            <span class="pill">⚡ Rápida para Ads</span>
+            <span class="pill">🎯 CTA claro</span>
+            <span class="pill">🌸 Estilo “fino”</span>
           </div>
         </div>
 
-        <aside class="card bookCard">
-          <div class="bookInner">
-            <div class="cover" aria-label="Imagem ilustrativa (trocar pela capa real)">
-              <div class="sticker">✨ Pronta para Ads</div>
-            </div>
-
-            <div class="chips">
-              <span class="chip">🗺️ Rota pelo mundo</span>
-              <span class="chip">🌸 Visual pastel</span>
-              <span class="chip">💫 Leitura leve</span>
-            </div>
-
-            <a class="btn primary" id="buyCard" href="#" target="_blank" rel="noopener">Quero comprar →</a>
+        <aside class="card bookCard" aria-label="Bloco do livro">
+          <div class="cover">
+            <div class="label">Amostra do layout</div>
+          </div>
+          <div class="metaRow">
+            <span class="pill">Tema: viagens</span>
+            <span class="pill">Design clean</span>
+            <span class="pill">Leitura leve</span>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn primary" id="buyCard" href="#" target="_blank" rel="noopener">Comprar →</a>
           </div>
         </aside>
       </div>
@@ -531,77 +476,75 @@
 
     <!-- SOBRE -->
     <section id="sobre">
-      <h2 class="title">O que essa página entrega (estrutura de venda)</h2>
-      <p class="desc">
-        Aqui entram os pontos que fazem alguém pensar “ok, eu quero esse livro”.
-        Deixei em formato pronto para você apresentar para a Roberta.
+      <h2 class="sectionTitle">Por que este livro?</h2>
+      <p class="sectionDesc">
+        Estrutura pensada para passar confiança e criar desejo — com o mínimo de “barulho” visual.
       </p>
 
       <div class="grid3">
-        <div class="feat">
+        <div class="miniCard">
           <h3>🌍 Histórias que transportam</h3>
-          <p>Texto para o leitor sentir o clima da viagem antes de comprar.</p>
+          <p>O leitor sente a viagem antes de comprar. Texto curto, direto e convidativo.</p>
         </div>
-        <div class="feat">
-          <h3>🧭 Curiosidades</h3>
-          <p>Seção da autora.</p>
+        <div class="miniCard">
+          <h3>🧭 Descobertas e reflexões</h3>
+          <p>Uma narrativa que inspira e deixa vontade de viver o mundo com leveza.</p>
         </div>
-        <div class="feat">
-          <h3>🛒 Compra com 1 clique</h3>
-          <p> cards clicáveis levando direto para a Amazon.</p>
+        <div class="miniCard">
+          <h3>🛒 Compra sem distração</h3>
+          <p>Botões bem posicionados e cards clicáveis (ótimo no celular).</p>
         </div>
       </div>
     </section>
 
     <!-- FOTOS DISPERSAS -->
     <section id="galeria">
-      <h2 class="title">Clima de viagem</h2>
-      <p class="desc">
-        trocar depois por fotos reais da autora/viagens.
-      </p>
+      <h2 class="sectionTitle">Clima de viagem</h2>
+      <p class="sectionDesc">Fotos em estilo “polaroid” discretas, limpas e com sensação feliz.</p>
 
       <div class="polaroids">
         <div class="polaroid" style="--rot:-2deg; --img:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=70')">
+          <div class="tape"></div>
           <div class="img"></div>
-          <div class="cap">Amanhecer na estrada <small>• recomeços bonitos</small></div>
+          <div class="cap">Amanhecer na estrada <small>recomeços leves</small></div>
         </div>
 
-        <div class="polaroid" style="--rot:1.6deg; --img:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=70')">
+        <div class="polaroid" style="--rot:1.8deg; --img:url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1400&q=70')">
+          <div class="tape" style="background: rgba(251,207,232,.68)"></div>
           <div class="img"></div>
-          <div class="cap">Caminho surpresa <small>• o acaso é parte</small></div>
+          <div class="cap">Mapa e destino <small>rumo muda, tudo bem</small></div>
         </div>
 
-        <div class="polaroid" style="--rot:-1deg; --img:url('https://images.unsplash.com/photo-1500043357865-c6b8827edf7f?auto=format&fit=crop&w=1400&q=70')">
+        <div class="polaroid" style="--rot:-1deg; --img:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=70')">
+          <div class="tape" style="background: rgba(167,243,208,.70)"></div>
           <div class="img"></div>
-          <div class="cap">Cidade viva <small>• gente e histórias</small></div>
+          <div class="cap">Caminho surpresa <small>o melhor do acaso</small></div>
         </div>
 
-        <div class="polaroid" style="--rot:2.2deg; --img:url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1400&q=70')">
+        <div class="polaroid" style="--rot:2.2deg; --img:url('https://images.unsplash.com/photo-1500043357865-c6b8827edf7f?auto=format&fit=crop&w=1400&q=70')">
+          <div class="tape" style="background: rgba(124,199,255,.70)"></div>
           <div class="img"></div>
-          <div class="cap">Mapa na mão <small>• rumo muda, tudo bem</small></div>
+          <div class="cap">Cidade viva <small>gente e histórias</small></div>
         </div>
       </div>
     </section>
 
     <!-- AUTORA -->
     <section id="autora">
-      <h2 class="title">Sobre a autora</h2>
-      <p class="desc">mini bio + curiosidades.</p>
+      <h2 class="sectionTitle">Sobre a autora</h2>
+      <p class="sectionDesc">Seção clean com foto + curiosidades (isso aumenta confiança e conversão).</p>
 
       <div class="authorGrid">
-        <div class="card authorCard">
-          <div class="authorPhoto" aria-label="Foto da autora">
-            <!-- Suba a foto como rob.jpg no mesmo nível do index.html -->
-            <img id="authorImg" src="rob.jpg" alt="Autora Roberta Rosa"
-                 onerror="document.getElementById('fallback').style.display='grid'; this.style.display='none';" />
-            <div id="fallback" class="authorFallback" style="display:none">
-              <div>
-                <div style="font-size:34px">📸</div>
-                <div style="margin-top:8px">Foto não encontrada.</div>
-                <div style="margin-top:6px; font-weight:800">
-                  Envie para o GitHub como <strong>roberta.jpg</strong><br/>
-                  (na mesma pasta do <strong>index.html</strong>).
-                </div>
+        <div class="card authorPhoto" aria-label="Foto da autora">
+          <img id="authorImg" src="rob.jpg" alt="Foto da autora Roberta Rosa"
+               onerror="document.getElementById('fb').style.display='grid'; this.style.display='none';" />
+          <div id="fb" class="fallback">
+            <div>
+              <div style="font-size:34px">📸</div>
+              <div style="margin-top:8px">Imagem não carregou.</div>
+              <div style="margin-top:6px">
+                Confirme se o arquivo está no repo como <strong>rob.jpg</strong><br/>
+                (mesma pasta do <strong>index.html</strong>).
               </div>
             </div>
           </div>
@@ -612,37 +555,37 @@
             <div class="ico">🌸</div>
             <div>
               <strong>Roberta Rosa</strong>
-              <span>Autora apaixonada por viagens e por transformar experiência em narrativa inspiradora.</span>
+              <span>Autora que transforma viagens em narrativas leves, humanas e inspiradoras.</span>
             </div>
           </div>
 
           <div class="fact">
-            <div class="ico">🧳</div>
+            <div class="ico" style="background: rgba(167,243,208,.35)">🧳</div>
             <div>
-              <strong>Curiosidade 1</strong>
-              <span>Ex.: “A primeira viagem sozinha virou o gatilho para escrever o livro.”</span>
+              <strong>Curiosidade</strong>
+              <span>Ex.: “Uma viagem específica virou o ponto de virada que inspirou o livro.”</span>
             </div>
           </div>
 
           <div class="fact">
-            <div class="ico">📍</div>
+            <div class="ico" style="background: rgba(251,207,232,.35)">📍</div>
             <div>
-              <strong>Curiosidade 2</strong>
-              <span>Ex.: “Um lugar específico aparece como ‘capítulo favorito’ da jornada.”</span>
+              <strong>Curiosidade</strong>
+              <span>Ex.: “Tem um lugar favorito no mundo que aparece como ‘capítulo especial’.”</span>
             </div>
           </div>
 
           <div class="fact">
-            <div class="ico">✨</div>
+            <div class="ico" style="background: rgba(253,230,138,.45)">✨</div>
             <div>
-              <strong>Curiosidade 3</strong>
-              <span>Ex.: “Escreve para inspirar pessoas comuns a viverem experiências extraordinárias.”</span>
+              <strong>Curiosidade</strong>
+              <span>Ex.: “Escreve para inspirar pessoas a viverem o mundo com mais coragem e leveza.”</span>
             </div>
           </div>
 
           <div class="buyRow">
-            <a class="btn primary" id="buyAuthor" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
-            <a class="btn secondary" href="#comprar">Ver opções de compra</a>
+            <a class="btn primary" id="buyAuthor" href="#" target="_blank" rel="noopener">Comprar →</a>
+            <a class="btn" href="#comprar">Opções de compra</a>
           </div>
         </div>
       </div>
@@ -650,75 +593,68 @@
 
     <!-- TRECHO -->
     <section id="trecho">
-      <h2 class="title">Trecho do livro</h2>
-      <p class="desc">Um trecho curtinho e forte aumenta muito a vontade de comprar.</p>
+      <h2 class="sectionTitle">Um trecho</h2>
+      <p class="sectionDesc">Curto, forte e elegante — perfeito para dar vontade de comprar.</p>
 
       <div class="card excerpt">
         <div class="excerptInner">
           <blockquote>
-            “Eu achava que precisava de um plano perfeito. Mas a viagem me ensinou outra coisa:
+            “Eu achava que precisava de um plano perfeito. Mas o mundo me ensinou outra coisa:
             <em>a rota só aparece depois do primeiro passo</em>.
-            E quando percebi, eu já tinha colecionado cidades, sotaques e versões melhores de mim.”
+            E, sem perceber, eu já tinha colecionado cidades, encontros e versões melhores de mim.”
           </blockquote>
-          <div class="quoteMeta">— Trecho ilustrativo (substituir por trecho real)</div>
+          <div class="quoteMeta">— Trecho ilustrativo (trocar pelo trecho real)</div>
 
           <div style="margin-top:14px" class="ctaRow">
             <a class="btn primary" id="buyExcerpt" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
-            <a class="btn" href="#galeria">Ver fotos</a>
+            <a class="btn soft" href="#galeria">Ver fotos</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COMPRAR (CRIATIVO) -->
+    <!-- COMPRAR -->
     <section id="comprar">
-      <h2 class="title">Comprar (criativo + bonito)</h2>
-      <p class="desc">
-        Cards clicáveis para “sentir” a compra (funciona bem no celular).
-        Por enquanto tudo pode apontar para a Amazon.
-      </p>
+      <h2 class="sectionTitle">Comprar</h2>
+      <p class="sectionDesc">Cards clicáveis (clean e “fino”), ótimo no mobile.</p>
 
-      <div class="buyWrap">
+      <div class="buyGrid">
         <div class="card buyCard">
-          <div class="buyInner">
-            <h3 style="margin:0 0 8px; letter-spacing:-.2px">🎁 Um presente para quem ama viajar</h3>
-            <p style="margin:0 0 14px; color:var(--mut); line-height:1.7; font-weight:750">
-              Ideal para inspirar, relaxar e dar aquela vontade de explorar o mundo.
-            </p>
-            <div class="buyRow">
-              <a class="btn primary" id="buyBottom" href="#" target="_blank" rel="noopener">🛒 Comprar na Amazon</a>
-              <a class="btn secondary" href="#home">↩ Voltar ao topo</a>
-            </div>
+          <h3 style="margin:0 0 8px">🎁 Presente perfeito</h3>
+          <p style="margin:0 0 14px; color:var(--muted); line-height:1.7">
+            Para quem ama viajar, sonhar e se inspirar. Sem poluição visual, só o essencial.
+          </p>
+          <div class="buyRow">
+            <a class="btn primary" id="buyBottom" href="#" target="_blank" rel="noopener">🛒 Comprar na Amazon</a>
+            <a class="btn" href="#home">Voltar</a>
           </div>
         </div>
 
         <div class="card buyCard">
-          <div class="buyInner">
-            <div class="buyRow">
-              <a class="buyTile" id="tileAmazon" href="#" target="_blank" rel="noopener">
-                <div class="logo">🛒</div>
-                <div>
-                  <strong>Amazon</strong>
-                  <span>Compra rápida • Link direto</span>
-                </div>
-              </a>
+          <div class="buyRow">
+            <a class="buyTile" id="tileAmazon" href="#" target="_blank" rel="noopener">
+              <div class="logo">🛒</div>
+              <div>
+                <strong>Amazon</strong>
+                <span>Link direto para compra</span>
+              </div>
+            </a>
 
-              <a class="buyTile" id="tileKindle" href="#" target="_blank" rel="noopener">
-                <div class="logo">📱</div>
-                <div>
-                  <strong>Kindle (opcional)</strong>
-                  <span>Se houver versão digital</span>
-                </div>
-              </a>
+            <a class="buyTile" id="tileKindle" href="#" target="_blank" rel="noopener">
+              <div class="logo">📱</div>
+              <div>
+                <strong>Kindle (opcional)</strong>
+                <span>Se houver versão digital</span>
+              </div>
+            </a>
 
-              <a class="buyTile" id="tileOther" href="#" target="_blank" rel="noopener">
-                <div class="logo">🌐</div>
-                <div>
-                  <strong>Outras lojas (opcional)</strong>
-                  <span>Se quiser vender fora</span>
-                </div>
-              </a>
-            </div>
+            <a class="buyTile" id="tileOther" href="#" target="_blank" rel="noopener">
+              <div class="logo">🌐</div>
+              <div>
+                <strong>Outras lojas (opcional)</strong>
+                <span>Se quiser vender fora</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -726,14 +662,14 @@
 
     <footer>
       <div class="foot">
-        <div>© <span id="year"></span> • Roberta Rosa • Landing page (amostra)</div>
-        <div class="badge">Recomendado: Política de Privacidade (para Ads)</div>
+        <div>© <span id="year"></span> • Roberta Rosa</div>
+        <div>Recomendado para Ads: política de privacidade</div>
       </div>
     </footer>
   </main>
 
-  <!-- Sticky CTA mobile -->
-  <div class="sticky" role="region" aria-label="Chamada para compra fixa">
+  <!-- Sticky CTA -->
+  <div class="sticky">
     <div class="stickyInner">
       <div class="stickyText">
         <strong>Roberta Rosa</strong>
@@ -744,14 +680,14 @@
   </div>
 
   <script>
-    // Troque quando tiver o link oficial
+    // Troque quando tiver o link real da Amazon
     const AMAZON_URL = "https://www.amazon.com.br/SEU-LINK-AQUI";
 
-    // Se ainda não tiver outros, pode deixar igual ao da Amazon
+    // Se não tiver outros, deixe igual
     const KINDLE_URL = AMAZON_URL;
     const OTHER_URL  = AMAZON_URL;
 
-    const ids = {
+    const links = {
       buyTop: AMAZON_URL,
       buyHero: AMAZON_URL,
       buyCard: AMAZON_URL,
@@ -764,7 +700,7 @@
       tileOther: OTHER_URL
     };
 
-    Object.entries(ids).forEach(([id,url])=>{
+    Object.entries(links).forEach(([id,url])=>{
       const el = document.getElementById(id);
       if(el) el.href = url;
     });
