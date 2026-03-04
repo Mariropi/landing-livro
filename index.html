@@ -1,359 +1,775 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
+<!doctype html>
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roberta Rosa — Lançamento (Amostra)</title>
+  <meta name="description" content="Landing page em tons pastéis para divulgar um livro de viagens e levar para compra na Amazon." />
 
-<title>Livro de Viagens - Roberta Rosa</title>
+  <style>
+    :root{
+      /* Pastéis felizes */
+      --sky:#e8f7ff;
+      --mint:#eafff2;
+      --peach:#fff0e6;
+      --lilac:#f3eeff;
+      --sun:#fff6cc;
 
-<style>
+      --ink:#1c2333;
+      --mut:#4e5a73;
+      --line:rgba(28,35,51,.12);
+      --card:rgba(255,255,255,.78);
+      --shadow: 0 18px 60px rgba(28,35,51,.12);
+      --r: 18px;
+      --max: 1120px;
 
-body{
-font-family: Arial, Helvetica, sans-serif;
-margin:0;
-background: linear-gradient(180deg,#fff7ed,#ecfeff);
-color:#1e293b;
-}
+      --gradA: linear-gradient(135deg, rgba(255,181,167,.92), rgba(191,220,255,.92)); /* peach->sky */
+      --gradB: linear-gradient(135deg, rgba(184,255,219,.92), rgba(255,232,163,.92)); /* mint->sun */
+      --gradC: linear-gradient(135deg, rgba(214,198,255,.92), rgba(255,201,229,.92)); /* lilac->pink */
 
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-}
+      --focus: 0 0 0 4px rgba(120,170,255,.22);
+    }
 
-/* HEADER */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 560px at 10% -10%, rgba(255,181,167,.40), transparent 60%),
+        radial-gradient(900px 560px at 110% 10%, rgba(191,220,255,.45), transparent 60%),
+        radial-gradient(900px 560px at 50% 120%, rgba(184,255,219,.35), transparent 60%),
+        linear-gradient(180deg, var(--peach), var(--sky) 35%, var(--mint));
+      overflow-x:hidden;
+    }
 
-header{
-background:white;
-padding:15px;
-border-bottom:1px solid #ddd;
-position:sticky;
-top:0;
-}
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto}
 
-header .container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+    /* Header */
+    header{
+      position: sticky; top:0; z-index:60;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.68);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding: 14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 900; letter-spacing:-.2px;
+    }
+    .badge{
+      font-size: 12px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      color: var(--mut);
+      font-weight: 800;
+      white-space:nowrap;
+    }
+    nav{display:flex; gap: 8px; align-items:center}
+    nav a{
+      font-size:14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--mut);
+      font-weight: 750;
+    }
+    nav a:hover{background: rgba(28,35,51,.06); color: var(--ink)}
 
-.menu a{
-margin-left:15px;
-text-decoration:none;
-font-weight:bold;
-color:#334155;
-}
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 28px rgba(28,35,51,.10);
+      font-weight: 900;
+      cursor:pointer;
+      transition: transform .16s ease, box-shadow .16s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 18px 36px rgba(28,35,51,.14)}
+    .btn:focus{outline:none; box-shadow: var(--focus), 0 18px 36px rgba(28,35,51,.14)}
+    .btn.primary{
+      border-color: transparent;
+      background: var(--gradB);
+    }
+    .btn.secondary{
+      border-color: transparent;
+      background: var(--gradA);
+    }
 
-.btn{
-background:#22c55e;
-padding:10px 18px;
-border-radius:30px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-}
+    /* Layout */
+    section{padding: 26px 0}
+    .hero{padding: 54px 0 18px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:center;
+    }
 
-/* HERO */
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.76);
+      color: var(--mut);
+      font-size: 13px;
+      font-weight: 900;
+    }
 
-.hero{
-padding:60px 0;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
+    h1{
+      margin: 12px 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.9px;
+    }
+    .sub{
+      margin: 0 0 14px;
+      color: var(--mut);
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.65;
+      max-width: 68ch;
+    }
 
-.hero h1{
-font-size:42px;
-}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .mini{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .mini span{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(28,35,51,.18);
+      background: rgba(255,255,255,.7);
+      color: var(--mut);
+      font-size: 13px;
+      font-weight: 900;
+    }
 
-.hero img{
-width:100%;
-border-radius:10px;
-}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+    }
 
-/* SEÇÕES */
+    /* Book card */
+    .bookCard{
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .bookCard:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255,181,167,.45), transparent 60%),
+        radial-gradient(circle at 70% 35%, rgba(191,220,255,.50), transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(184,255,219,.40), transparent 60%);
+      filter: blur(18px);
+      z-index:0;
+    }
+    .bookInner{position:relative; z-index:1; display:grid; gap: 12px}
 
-section{
-padding:50px 0;
-}
+    .cover{
+      width:100%;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      border: 1px solid rgba(28,35,51,.12);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.15)),
+        url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=70") center/cover no-repeat;
+      position:relative;
+      overflow:hidden;
+    }
+    .sticker{
+      position:absolute; left: 12px; top: 12px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.82);
+      border:1px solid rgba(28,35,51,.12);
+      font-weight: 950;
+      font-size: 12px;
+      box-shadow: 0 12px 28px rgba(28,35,51,.10);
+    }
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(28,35,51,.12);
+      background: rgba(255,255,255,.75);
+      color: var(--mut);
+      font-size: 12px;
+      font-weight: 900;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
+    /* Section titles */
+    .title{
+      margin:0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+    .desc{
+      margin:0 0 16px;
+      color: var(--mut);
+      line-height: 1.7;
+      max-width: 80ch;
+      font-weight: 650;
+    }
 
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    /* Features */
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .feat{
+      padding: 16px;
+      border-radius: var(--r);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.80);
+      box-shadow: 0 14px 36px rgba(28,35,51,.08);
+    }
+    .feat h3{margin:0 0 6px; font-size: 16px}
+    .feat p{margin:0; color: var(--mut); line-height: 1.65; font-size: 14px; font-weight: 650}
 
-/* GALERIA */
+    /* Polaroids (dispersed photos) */
+    .polaroids{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items:start;
+    }
+    .polaroid{
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(28,35,51,.12);
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: 0 18px 50px rgba(28,35,51,.12);
+      transform: rotate(var(--rot));
+      position:relative;
+    }
+    .polaroid:before{
+      content:"";
+      position:absolute;
+      width: 56px; height: 20px;
+      top: -10px; left: 18px;
+      border-radius: 8px;
+      background: rgba(255, 232, 163, .85);
+      border: 1px solid rgba(28,35,51,.10);
+      transform: rotate(-6deg);
+    }
+    .polaroid .img{
+      width:100%;
+      aspect-ratio: 4/3;
+      border-radius: 14px;
+      border: 1px solid rgba(28,35,51,.10);
+      background: var(--img) center/cover no-repeat;
+    }
+    .polaroid .cap{
+      padding: 10px 6px 4px;
+      font-weight: 950;
+      font-size: 13px;
+      color: #263049;
+    }
+    .polaroid small{
+      display:block;
+      margin-top: 2px;
+      color: var(--mut);
+      font-weight: 800;
+    }
 
-.galeria{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-}
+    /* Author section */
+    .authorGrid{
+      display:grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .authorCard{padding: 14px}
+    .authorPhoto{
+      border-radius: var(--r);
+      border: 1px solid rgba(28,35,51,.12);
+      background: rgba(255,255,255,.82);
+      overflow:hidden;
+      min-height: 320px;
+      position:relative;
+    }
+    .authorPhoto img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .authorFallback{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      padding: 18px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(191,220,255,.65), transparent 60%),
+        radial-gradient(circle at 70% 40%, rgba(255,181,167,.55), transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(184,255,219,.50), transparent 60%),
+        rgba(255,255,255,.88);
+      color: var(--mut);
+      font-weight: 900;
+    }
+    .facts{display:grid; gap:10px}
+    .fact{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(28,35,51,.12);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 12px 30px rgba(28,35,51,.08);
+    }
+    .ico{
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(28,35,51,.10);
+      background: var(--gradC);
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+    .fact strong{display:block; margin-bottom:2px}
+    .fact span{color: var(--mut); line-height: 1.6; font-weight: 700; font-size: 14px}
 
-.galeria img{
-width:100%;
-border-radius:10px;
-}
+    /* Excerpt */
+    .excerpt{padding: 18px; position:relative; overflow:hidden}
+    .excerpt:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(191,220,255,.65), transparent 60%),
+        radial-gradient(circle at 75% 35%, rgba(255,181,167,.60), transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(184,255,219,.55), transparent 60%);
+      filter: blur(18px);
+      z-index:0;
+    }
+    .excerptInner{position:relative; z-index:1}
+    blockquote{
+      margin:0;
+      font-size: 16px;
+      line-height: 1.85;
+      color: #25304a;
+      font-weight: 700;
+    }
+    blockquote em{
+      font-style: normal;
+      font-weight: 950;
+      color: #1c2333;
+      background: rgba(255,246,204,.85);
+      padding: 0 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(28,35,51,.10);
+    }
+    .quoteMeta{margin-top: 10px; color: var(--mut); font-weight: 900; font-size: 13px}
 
-/* AUTORA */
+    /* Buy section */
+    .buyWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .buyCard{padding: 16px; position:relative; overflow:hidden}
+    .buyCard:before{
+      content:"";
+      position:absolute; inset:-35%;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255,232,163,.65), transparent 60%),
+        radial-gradient(circle at 70% 40%, rgba(191,220,255,.60), transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(255,201,229,.55), transparent 60%);
+      filter: blur(18px);
+      z-index:0;
+    }
+    .buyInner{position:relative; z-index:1}
+    .buyRow{display:flex; gap: 10px; flex-wrap:wrap; align-items:center}
+    .buyTile{
+      display:flex; align-items:center; gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(28,35,51,.12);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 14px 36px rgba(28,35,51,.10);
+      transition: transform .16s ease, box-shadow .16s ease;
+      cursor:pointer;
+      flex: 1 1 240px;
+      min-width: 240px;
+    }
+    .buyTile:hover{transform: translateY(-2px); box-shadow: 0 18px 42px rgba(28,35,51,.14)}
+    .logo{
+      width: 44px; height: 44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(28,35,51,.10);
+      background: rgba(28,35,51,.04);
+      font-size: 20px;
+      flex: 0 0 auto;
+    }
+    .buyTile strong{display:block; font-size: 15px}
+    .buyTile span{display:block; color: var(--mut); font-weight: 800; font-size: 13px}
 
-.autora{
-display:grid;
-grid-template-columns:300px 1fr;
-gap:30px;
-align-items:center;
-}
+    /* Footer */
+    footer{
+      padding: 26px 0 80px;
+      border-top: 1px solid var(--line);
+      color: var(--mut);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .foot{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
 
-.autora img{
-width:100%;
-border-radius:15px;
-}
+    /* Sticky CTA on mobile */
+    .sticky{
+      position: fixed;
+      left:0; right:0; bottom:0;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.72);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      display:none;
+      z-index: 90;
+    }
+    .stickyInner{
+      width:min(var(--max), calc(100% - 24px));
+      margin: 0 auto;
+      display:flex; align-items:center; justify-content:space-between; gap: 10px;
+    }
+    .stickyText strong{display:block; font-size: 13px}
+    .stickyText span{display:block; font-size: 12px; color: var(--mut); font-weight: 850}
 
-/* TRECHO */
-
-.trecho{
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-font-style:italic;
-}
-
-/* BOTÕES DE COMPRA */
-
-.compra{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.botao-compra{
-padding:15px 20px;
-border-radius:10px;
-background:#f59e0b;
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* FOOTER */
-
-footer{
-padding:30px;
-text-align:center;
-background:white;
-margin-top:40px;
-border-top:1px solid #ddd;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-.hero{
-grid-template-columns:1fr;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-
-.galeria{
-grid-template-columns:1fr 1fr;
-}
-
-.autora{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
+    @media (max-width: 980px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .polaroids{grid-template-columns: repeat(2, 1fr)}
+      .authorGrid{grid-template-columns:1fr}
+      .buyWrap{grid-template-columns:1fr}
+      .sticky{display:block}
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-
-<div class="container">
-
-<h3>🌍 Roberta Rosa</h3>
-
-<div class="menu">
-<a href="#sobre">Sobre</a>
-<a href="#autora">Autora</a>
-<a href="#trecho">Trecho</a>
-<a class="btn" href="#">Comprar</a>
-</div>
-
-</div>
-
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero container">
-
-<div>
-<h1>Uma jornada ao redor do mundo</h1>
-
-<p>
-Uma página de amostra para divulgação do livro de Roberta Rosa.
-A proposta é inspirar o leitor a conhecer novas culturas,
-histórias e experiências pelo mundo.
-</p>
-
-<a class="btn" href="#">Comprar na Amazon</a>
-
-</div>
-
-<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800">
-
-</section>
-
-
-<!-- SOBRE O LIVRO -->
-
-<section id="sobre">
-
-<div class="container">
-
-<h2>Sobre o livro</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🌍 Experiências reais</h3>
-<p>Histórias vividas em diferentes lugares do mundo.</p>
-</div>
-
-<div class="card">
-<h3>🧭 Descobertas</h3>
-<p>Momentos que transformam a forma de enxergar a vida.</p>
-</div>
-
-<div class="card">
-<h3>✨ Inspiração</h3>
-<p>Um convite para sair da rotina e explorar novos caminhos.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- GALERIA -->
-
-<section>
-
-<div class="container">
-
-<h2>Clima de viagem</h2>
-
-<div class="galeria">
-
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-<img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- AUTORA -->
-
-<section id="autora">
-
-<div class="container autora">
-
-<img src="roberta.jpg">
-
-<div>
-
-<h2>Sobre a autora</h2>
-
-<p>
-Roberta Rosa é apaixonada por viagens e por histórias que transformam.
-Ao longo de suas jornadas pelo mundo, acumulou experiências,
-culturas e encontros que agora compartilha neste livro.
-</p>
-
-<p>
-Seu objetivo é inspirar outras pessoas a explorar o mundo
-e viver novas experiências.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TRECHO -->
-
-<section id="trecho">
-
-<div class="container">
-
-<h2>Trecho do livro</h2>
-
-<div class="trecho">
-
-"Eu descobri que viajar não é apenas conhecer lugares novos,
-mas também descobrir novas versões de si mesmo.
-Cada cidade deixa uma marca,
-cada encontro muda um pouco a nossa história."
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- COMPRA -->
-
-<section>
-
-<div class="container">
-
-<h2>Onde comprar</h2>
-
-<div class="compra">
-
-<a class="botao-compra" href="#">🛒 Amazon</a>
-<a class="botao-compra" href="#">📱 Kindle</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 - Página de divulgação do livro de Roberta Rosa</p>
-
-</footer>
-
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        ✈️ <span>Roberta Rosa</span>
+        <span class="badge">Amostra • Lançamento</span>
+      </div>
+
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#galeria">Fotos</a>
+        <a href="#autora">Autora</a>
+        <a href="#trecho">Trecho</a>
+        <a href="#comprar">Comprar</a>
+      </nav>
+
+      <a class="btn primary" id="buyTop" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="grid">
+        <div>
+          <div class="kicker">🌈 Tons pastéis • alegria de viagem • página leve p/ divulgar e vender</div>
+
+          <h1>Uma viagem que dá vontade de sorrir — e de arrumar a mala.</h1>
+
+          <p class="sub">
+            Esta página é uma <strong>amostra de estrutura</strong> para o lançamento do livro de viagens.
+            Depois eu só substituo com o <strong>título, sinopse, capa e trecho real</strong> — mantendo esse visual feliz e leve.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" id="buyHero" href="#" target="_blank" rel="noopener">🛒 Comprar na Amazon</a>
+            <a class="btn secondary" href="#trecho">📖 Ler um trecho</a>
+            <a class="btn" href="#autora">👩‍💼 Conhecer a autora</a>
+          </div>
+
+          <div class="mini">
+            <span>📱 Responsiva</span>
+            <span>⚡ Rápida</span>
+            <span>🎯 CTA claro</span>
+            <span>🧡 Tema viagem</span>
+          </div>
+        </div>
+
+        <aside class="card bookCard">
+          <div class="bookInner">
+            <div class="cover" aria-label="Imagem ilustrativa (trocar pela capa real)">
+              <div class="sticker">✨ Pronta para Ads</div>
+            </div>
+
+            <div class="chips">
+              <span class="chip">🗺️ Rota pelo mundo</span>
+              <span class="chip">🌸 Visual pastel</span>
+              <span class="chip">💫 Leitura leve</span>
+            </div>
+
+            <a class="btn primary" id="buyCard" href="#" target="_blank" rel="noopener">Quero comprar →</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <h2 class="title">O que essa página entrega (estrutura de venda)</h2>
+      <p class="desc">
+        Aqui entram os pontos que fazem alguém pensar “ok, eu quero esse livro”.
+        Deixei em formato pronto para você apresentar para a Roberta.
+      </p>
+
+      <div class="grid3">
+        <div class="feat">
+          <h3>🌍 Histórias que transportam</h3>
+          <p>Texto para o leitor sentir o clima da viagem antes de comprar.</p>
+        </div>
+        <div class="feat">
+          <h3>🧭 Curiosidades</h3>
+          <p>Seção da autora.</p>
+        </div>
+        <div class="feat">
+          <h3>🛒 Compra com 1 clique</h3>
+          <p> cards clicáveis levando direto para a Amazon.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTOS DISPERSAS -->
+    <section id="galeria">
+      <h2 class="title">Clima de viagem</h2>
+      <p class="desc">
+        trocar depois por fotos reais da autora/viagens.
+      </p>
+
+      <div class="polaroids">
+        <div class="polaroid" style="--rot:-2deg; --img:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=70')">
+          <div class="img"></div>
+          <div class="cap">Amanhecer na estrada <small>• recomeços bonitos</small></div>
+        </div>
+
+        <div class="polaroid" style="--rot:1.6deg; --img:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=70')">
+          <div class="img"></div>
+          <div class="cap">Caminho surpresa <small>• o acaso é parte</small></div>
+        </div>
+
+        <div class="polaroid" style="--rot:-1deg; --img:url('https://images.unsplash.com/photo-1500043357865-c6b8827edf7f?auto=format&fit=crop&w=1400&q=70')">
+          <div class="img"></div>
+          <div class="cap">Cidade viva <small>• gente e histórias</small></div>
+        </div>
+
+        <div class="polaroid" style="--rot:2.2deg; --img:url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1400&q=70')">
+          <div class="img"></div>
+          <div class="cap">Mapa na mão <small>• rumo muda, tudo bem</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTORA -->
+    <section id="autora">
+      <h2 class="title">Sobre a autora</h2>
+      <p class="desc">mini bio + curiosidades.</p>
+
+      <div class="authorGrid">
+        <div class="card authorCard">
+          <div class="authorPhoto" aria-label="Foto da autora">
+            <!-- Suba a foto como rob.jpg no mesmo nível do index.html -->
+            <img id="authorImg" src="rob.jpg" alt="Autora Roberta Rosa"
+                 onerror="document.getElementById('fallback').style.display='grid'; this.style.display='none';" />
+            <div id="fallback" class="authorFallback" style="display:none">
+              <div>
+                <div style="font-size:34px">📸</div>
+                <div style="margin-top:8px">Foto não encontrada.</div>
+                <div style="margin-top:6px; font-weight:800">
+                  Envie para o GitHub como <strong>roberta.jpg</strong><br/>
+                  (na mesma pasta do <strong>index.html</strong>).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facts">
+          <div class="fact">
+            <div class="ico">🌸</div>
+            <div>
+              <strong>Roberta Rosa</strong>
+              <span>Autora apaixonada por viagens e por transformar experiência em narrativa inspiradora.</span>
+            </div>
+          </div>
+
+          <div class="fact">
+            <div class="ico">🧳</div>
+            <div>
+              <strong>Curiosidade 1</strong>
+              <span>Ex.: “A primeira viagem sozinha virou o gatilho para escrever o livro.”</span>
+            </div>
+          </div>
+
+          <div class="fact">
+            <div class="ico">📍</div>
+            <div>
+              <strong>Curiosidade 2</strong>
+              <span>Ex.: “Um lugar específico aparece como ‘capítulo favorito’ da jornada.”</span>
+            </div>
+          </div>
+
+          <div class="fact">
+            <div class="ico">✨</div>
+            <div>
+              <strong>Curiosidade 3</strong>
+              <span>Ex.: “Escreve para inspirar pessoas comuns a viverem experiências extraordinárias.”</span>
+            </div>
+          </div>
+
+          <div class="buyRow">
+            <a class="btn primary" id="buyAuthor" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+            <a class="btn secondary" href="#comprar">Ver opções de compra</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRECHO -->
+    <section id="trecho">
+      <h2 class="title">Trecho do livro</h2>
+      <p class="desc">Um trecho curtinho e forte aumenta muito a vontade de comprar.</p>
+
+      <div class="card excerpt">
+        <div class="excerptInner">
+          <blockquote>
+            “Eu achava que precisava de um plano perfeito. Mas a viagem me ensinou outra coisa:
+            <em>a rota só aparece depois do primeiro passo</em>.
+            E quando percebi, eu já tinha colecionado cidades, sotaques e versões melhores de mim.”
+          </blockquote>
+          <div class="quoteMeta">— Trecho ilustrativo (substituir por trecho real)</div>
+
+          <div style="margin-top:14px" class="ctaRow">
+            <a class="btn primary" id="buyExcerpt" href="#" target="_blank" rel="noopener">Comprar na Amazon →</a>
+            <a class="btn" href="#galeria">Ver fotos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPRAR (CRIATIVO) -->
+    <section id="comprar">
+      <h2 class="title">Comprar (criativo + bonito)</h2>
+      <p class="desc">
+        Cards clicáveis para “sentir” a compra (funciona bem no celular).
+        Por enquanto tudo pode apontar para a Amazon.
+      </p>
+
+      <div class="buyWrap">
+        <div class="card buyCard">
+          <div class="buyInner">
+            <h3 style="margin:0 0 8px; letter-spacing:-.2px">🎁 Um presente para quem ama viajar</h3>
+            <p style="margin:0 0 14px; color:var(--mut); line-height:1.7; font-weight:750">
+              Ideal para inspirar, relaxar e dar aquela vontade de explorar o mundo.
+            </p>
+            <div class="buyRow">
+              <a class="btn primary" id="buyBottom" href="#" target="_blank" rel="noopener">🛒 Comprar na Amazon</a>
+              <a class="btn secondary" href="#home">↩ Voltar ao topo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card buyCard">
+          <div class="buyInner">
+            <div class="buyRow">
+              <a class="buyTile" id="tileAmazon" href="#" target="_blank" rel="noopener">
+                <div class="logo">🛒</div>
+                <div>
+                  <strong>Amazon</strong>
+                  <span>Compra rápida • Link direto</span>
+                </div>
+              </a>
+
+              <a class="buyTile" id="tileKindle" href="#" target="_blank" rel="noopener">
+                <div class="logo">📱</div>
+                <div>
+                  <strong>Kindle (opcional)</strong>
+                  <span>Se houver versão digital</span>
+                </div>
+              </a>
+
+              <a class="buyTile" id="tileOther" href="#" target="_blank" rel="noopener">
+                <div class="logo">🌐</div>
+                <div>
+                  <strong>Outras lojas (opcional)</strong>
+                  <span>Se quiser vender fora</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <div>© <span id="year"></span> • Roberta Rosa • Landing page (amostra)</div>
+        <div class="badge">Recomendado: Política de Privacidade (para Ads)</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Sticky CTA mobile -->
+  <div class="sticky" role="region" aria-label="Chamada para compra fixa">
+    <div class="stickyInner">
+      <div class="stickyText">
+        <strong>Roberta Rosa</strong>
+        <span>Comprar na Amazon</span>
+      </div>
+      <a class="btn primary" id="buySticky" href="#" target="_blank" rel="noopener">Comprar →</a>
+    </div>
+  </div>
+
+  <script>
+    // Troque quando tiver o link oficial
+    const AMAZON_URL = "https://www.amazon.com.br/SEU-LINK-AQUI";
+
+    // Se ainda não tiver outros, pode deixar igual ao da Amazon
+    const KINDLE_URL = AMAZON_URL;
+    const OTHER_URL  = AMAZON_URL;
+
+    const ids = {
+      buyTop: AMAZON_URL,
+      buyHero: AMAZON_URL,
+      buyCard: AMAZON_URL,
+      buyAuthor: AMAZON_URL,
+      buyExcerpt: AMAZON_URL,
+      buyBottom: AMAZON_URL,
+      buySticky: AMAZON_URL,
+      tileAmazon: AMAZON_URL,
+      tileKindle: KINDLE_URL,
+      tileOther: OTHER_URL
+    };
+
+    Object.entries(ids).forEach(([id,url])=>{
+      const el = document.getElementById(id);
+      if(el) el.href = url;
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
